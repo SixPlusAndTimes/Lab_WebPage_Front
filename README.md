@@ -1,4 +1,6 @@
-# tab_webapp
+# lab_webapp
+
+实验室网站的前端部分（Vue 实现）
 
 ## Project setup
 ```
