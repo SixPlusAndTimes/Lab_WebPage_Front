@@ -1,6 +1,6 @@
 # lab_webapp
 
-实验室网站的前端部分（Vue 实现）
+实验室网站的前端部分（Vue, Vuex, Vue-router 实现）
 
 ## Project setup
 ```
