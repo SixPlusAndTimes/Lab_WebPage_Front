@@ -8,7 +8,7 @@
       <el-main>
         <el-row :gutter="20">
           <el-col :span="span_body" :offset="offset_body">
-            <h1 class="title">徐州大学计算机网络与人工智能研究室</h1>
+            <h1 class="title">南京航空航天大学智能制造实验室</h1>
           </el-col>
           <el-col :span="span_body" :offset="offset_body">
             <NavMenu></NavMenu>
@@ -23,10 +23,10 @@
       <el-footer>
         <el-row>
           <el-col :span="span_body" :offset="offset_body">
-            <el-row :gutter="2">
-              <el-col :span="10" :offset="10" class="annotate">苏公网安备 110402430053 号</el-col>
-              <el-col :span="10" :offset="2" class="annotate">版权所有 © 徐州大学江苏智能工控重点实验室</el-col>
-            </el-row>
+            <!--<el-row :gutter="2">-->
+            <!--  <el-col :span="10" :offset="10" class="annotate">苏公网安备 110402430053 号</el-col>-->
+            <!--  <el-col :span="10" :offset="2" class="annotate">版权所有 © 徐州大学江苏智能工控重点实验室</el-col>-->
+            <!--</el-row>-->
           </el-col>
         </el-row>
       </el-footer>
@@ -65,10 +65,13 @@ export default {
 
 #app {
   background-color: #f6f6f6;
+   margin-top: 0px;
+  background:url("./assets/back_ground/back_img_global.jpg");
 }
 
 .front {
   background-color: #fff;
   padding-bottom: 50px;
+
 }
 </style>

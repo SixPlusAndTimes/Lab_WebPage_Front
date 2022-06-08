@@ -1,30 +1,92 @@
 <template>
   <div>
-    <el-row>
-      <el-col
-        :span="10"
-        :offset="1"
-        v-for="(item, index) in researchers"
-        :key="index"
-        class="card_info"
-      >
-        <el-card shadow="hover" class="box-card" body-style="padding: '10px';">
-          <div slot="header" class="clearfix">
-            <h3>{{ item.title }}</h3>
-          </div>
-          <div class="head_img">
-            <img v-show="head_imgs[index]" :src="head_imgs[index]" alt="导师头像" />
-          </div>
-          <div class="bottom clearfix">
-            <span>{{ filterHtml(item.content) }}…</span>
-            <span>
-              <el-button style="padding: 5px 10px; font-size:16px" type="text">
-                <router-link :to="'/view?id=' + item.id">更多</router-link>
-              </el-button>
-            </span>
-          </div>
-        </el-card>
+    <!--<el-row>-->
+    <!--  <el-col-->
+    <!--    :span="10"-->
+    <!--    :offset="1"-->
+    <!--    v-for="(item, index) in researchers"-->
+    <!--    :key="index"-->
+    <!--    class="card_info"-->
+    <!--  >-->
+    <!--    <el-card shadow="hover" class="box-card" body-style="padding: '10px';">-->
+    <!--      <div slot="header" class="clearfix">-->
+    <!--        <h3>{{ item.title }}</h3>-->
+    <!--      </div>-->
+    <!--      <div class="head_img">-->
+    <!--        <img v-show="head_imgs[index]" :src="head_imgs[index]" alt="导师头像" />-->
+    <!--      </div>-->
+    <!--      <div class="bottom clearfix">-->
+    <!--        <span>{{ filterHtml(item.content) }}…</span>-->
+    <!--        <span>-->
+    <!--          <el-button style="padding: 5px 10px; font-size:16px" type="text">-->
+    <!--            <router-link :to="'/view?id=' + item.id">更多</router-link>-->
+    <!--          </el-button>-->
+    <!--        </span>-->
+    <!--      </div>-->
+    <!--    </el-card>-->
+    <!--  </el-col>-->
+    <!--</el-row>-->
+    <el-row :gutter="20">
+      <el-row></el-row>
+      <el-col :span="6">
+          <el-row class="tac">
+            <el-col :span="24">
+              <!--<h5>智能制造实验室</h5>-->
+              <el-menu
+                  :default-active="this.$route.path"
+                  router="true"
+                  class="el-menu-vertical-demo"
+                  >
+                <el-menu-item index="/our_team/lab_intro" @click.native="push('/our_team/lab_intro')">
+                  <i class="el-icon-menu"></i>
+                  <span slot="title">研究室介绍</span>
+                </el-menu-item>
+
+                <el-submenu index="/our_team/lab_team">
+                  <template slot="title">
+                    <i class="el-icon-location"></i>
+                    <span>研究团队</span>
+                  </template>
+                  <el-menu-item-group >
+                    <el-menu-item index="/our_team/lab_team_teachers" @click.native="push('/our_team/lab_team_teachers')">教师</el-menu-item>
+                    <el-menu-item index="/our_team/lab_team_coresearchers" @click.native="push('/our_team/lab_team_coresearchers')">联合研究者</el-menu-item>
+                    <el-menu-item index="/our_team/lab_team_graduate_students" @click.native="push('/our_team/lab_team_graduate_students')">研究生</el-menu-item>
+                    <el-menu-item index="/our_team/lab_team_graduates" @click.native="push('/our_team/lab_team_graduates')">毕业生</el-menu-item>
+                  </el-menu-item-group>
+                </el-submenu>
+
+                <el-menu-item index="/our_team/researchFiled" @click.native="push('/our_team/researchFiled')">
+                  <i class="el-icon-document"></i>
+                  <span slot="title">研究方向</span>
+                </el-menu-item>
+                <el-menu-item index="/our_team/researchProjects" @click.native="push('/our_team/researchProjects')">
+                  <i class="el-icon-setting"></i>
+                  <span slot="title">科研项目</span>
+                </el-menu-item>
+                <!--<el-menu-item index="5">-->
+                <!--  <i class="el-icon-setting"></i>-->
+                <!--  <span slot="title">学术成果</span>-->
+                <!--</el-menu-item>-->
+                <!--<el-menu-item index="6">-->
+                <!--  <i class="el-icon-setting"></i>-->
+                <!--  <span slot="title">学术交流</span>-->
+                <!--</el-menu-item>-->
+                <!--<el-menu-item index="7">-->
+                <!--  <i class="el-icon-setting"></i>-->
+                <!--  <span slot="title">科研设备</span>-->
+                <!--</el-menu-item>-->
+              </el-menu>
+            </el-col>
+          </el-row>
+
       </el-col>
+
+
+
+      <el-col :span="18">
+          <router-view></router-view>
+      </el-col>
+
     </el-row>
   </div>
 </template>
@@ -39,8 +101,11 @@ export default {
   data() {
     //这里存放数据
     return {
+      routeCur : this.$router.path,
+      submenuDefautlOpeneds : routeCur.substr(0,routeCur.lastIndexOf("_")),
       researchers: [],
       head_imgs: [],
+      isCollapse: true
     };
   },
   //监听属性 类似于data概念
@@ -69,9 +134,20 @@ export default {
       if (text.length < length) return text;
       else return text.substr(0, length);
     },
+    push: function (url) {
+      this.$router.push(url);
+    },
+    // handleOpen(key, keyPath) {
+    //   console.log(key, keyPath);
+    // },
+    // handleClose(key, keyPath) {
+    //   console.log(key, keyPath);
+    // }
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {},
+  created() {
+    console.log(this.$route.path)
+  },
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {
     const _this = this;
@@ -117,4 +193,36 @@ a:visited {
   text-decoration: none;
   color: #409eff;
 }
+
+/*布局*/
+.el-row {
+  margin-bottom: 20px;
+&:last-child {
+   margin-bottom: 0;
+ }
+}
+.el-col {
+  border-radius: 4px;
+}
+.bg-purple-dark {
+  background: #99a9bf;
+}
+.bg-purple {
+  background: #ffffff;
+}
+.bg-purple-light {
+  background: #e5e9f2;
+}
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
+.row-bg {
+  padding: 10px 0;
+  background-color: #f9fafc;
+}
+
+
+
+
 </style>

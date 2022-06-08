@@ -1,106 +1,100 @@
 <template>
   <div>
-    <el-row>
-      <div style="margin-top: 20px"></div>
-    </el-row>
-
-    <el-row>
-      <el-col :span="24">
-        <el-carousel :interval="4000" type="card" height="300px">
-          <el-carousel-item v-for="(item, key) in news" :key="key">
-            <div class="carousel_view">
-              <div class="news_title">
-                <router-link :to="{ path: '/view', query: { id: item.id } }">{{
-                  item.title
-                }}</router-link>
+    <el-row> </el-row>
+    <el-row :gutter="20">
+      <el-col :span="6">
+        <el-row :gutter="2">
+            <el-card class="box-card-left">
+              <div slot="header" class="clearfix">
+                <span>研究室简介</span>
               </div>
+              <div >
+                阿松大后来后i哦吼吼好久哦i和耦合oh加哦就和OK加哦就哦哦偶就吼吼吼吼哦哦吼吼吼吼吼hi改善改变覅该俄红粉
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+              </div>
+            </el-card>
+          </el-row>
 
-              <router-link :to="{ path: '/view', query: { id: item.id } }">
-                <img
-                  class="news_img"
-                  v-show="news_heads[key]"
-                  :src="news_heads[key]"
-                />
-              </router-link>
-            </div>
-          </el-carousel-item>
-        </el-carousel>
+        <el-row :gutter="2">
+            <el-card class="box-card-left">
+              <div slot="header" class="clearfix">
+                <span>热点新闻</span>
+              </div>
+              <div >
+                阿松大后来后i哦吼吼好久哦i和耦合oh加哦就和OK加哦就哦哦偶就吼吼吼吼哦哦吼吼吼吼吼hi改善改变覅该俄红粉
+              </div>
+            </el-card>
+        </el-row>
+
       </el-col>
-    </el-row>
 
-    <el-row :gutter="4">
       <el-col :span="12">
-        <el-card
-          shadow="hover"
-          :body-style="{ height: '250px', padding: '20px' }"
-        >
-          <div slot="header" class="clearfix">
-            <span>研究团队</span>
-            <el-button
-              style="float: right; padding: 3px 0"
-              type="text"
-              @click.native="$router.push('/our_team')"
-              >更多</el-button
-            >
-          </div>
-          <div>
-            <li v-for="(item, index) in researchers" :key="index">
-              <router-link :to="{ path: '/view', query: { id: item.id } }">
-                <span class="researcher_name">{{ item.title }}</span>
-                <span class="researcher_brief">{{
-                  item.content | filterHtml
-                }}</span>
-              </router-link>
-            </li>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="12">
-        <el-card
-          shadow="hover"
-          :body-style="{ height: '250px', padding: '20px' }"
-        >
-          <div slot="header" class="clearfix">
-            <span>公告栏</span>
-            <el-button style="float: right; padding: 3px 0" type="text"
-              >更多</el-button
-            >
-          </div>
-          <div>
-            <li class="board" v-for="(item, index) in board" :key="index">
-              <router-link :to="{ path: '/view', query: { id: item.id } }">
-                <span class="board_style">{{ item.title }}</span>
-              </router-link>
-            </li>
-          </div>
-        </el-card>
-      </el-col>
-    </el-row>
-
-    <el-row>
-      <el-divider></el-divider>
-      <h2>研究动态</h2>
-    </el-row>
-    <el-row :gutter="10">
-      <el-col :span="8" v-for="(item, key) in research" :key="key" :offset="0">
-        <el-card :body-style="{ height: '300px' }">
-          <div class="head_img" @click="push_view(item.id)">
-            <img :src="research_heads[key]" />
-            <div class="back_img" v-show="research_heads[key] == null"></div>
-          </div>
-
-          <div style="padding: 14px; float: left">
-            <span>{{ item.title }}</span>
-            <div class="bottom clearfix">
-              <time class="time">{{ item.created | format_time }}</time>
-              <el-button type="text" class="button" @click="push_view(item.id)"
-                >更多</el-button
-              >
+        <div class="grid-content bg-purple">
+          <el-card class="box-card-mid">
+            <div slot="header" class="clearfix">
+              <span>研究室动态</span>
             </div>
-          </div>
-        </el-card>
+            <div >
+              阿松大后来后i哦吼吼好久哦i和耦合oh加哦就和OK加哦就哦哦偶就吼吼吼吼哦哦吼吼吼吼吼hi改善改变覅该俄红粉
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+            </div>
+          </el-card>
+       </div></el-col>
+
+
+      <el-col :span="6">
+        <el-row :gutter="6">
+          <el-card class="box-card-left">
+            <div slot="header" class="clearfix">
+              <span>联系我们</span>
+            </div>
+            <div >
+              阿松大后来后i哦吼吼好久哦i和耦合oh加哦就和OK加哦就哦哦偶就吼吼吼吼哦哦吼吼吼吼吼hi改善改变覅该俄红粉
+
+            </div>
+          </el-card>
+        </el-row>
+
+        <el-row :gutter="6">
+          <el-card class="box-card-left">
+            <div slot="header" class="clearfix">
+              <span>友情链接</span>
+            </div>
+            <div >
+              阿松大后来后i哦吼吼好久哦i和耦合oh加哦就和OK加哦就哦哦偶就吼吼吼吼哦哦吼吼吼吼吼hi改善改变覅该俄红粉
+
+            </div>
+          </el-card>
+        </el-row>
       </el-col>
     </el-row>
+
   </div>
 </template>
 
@@ -309,4 +303,58 @@ li {
   width: 320px;
   height: 180px;
 }
+
+ .el-row {
+   margin-bottom: 20px;
+&:last-child {
+   margin-bottom: 0;
+ }
+}
+.el-col {
+  border-radius: 4px;
+}
+.bg-purple-dark {
+  background: #99a9bf;
+}
+.bg-purple {
+  background: #d3dce6;
+}
+.bg-purple-light {
+  background: #e5e9f2;
+}
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
+.row-bg {
+  padding: 10px 0;
+  background-color: #f9fafc;
+}
+
+
+ /*研究室简介样式*/
+ .text {
+   font-size: 14px;
+ }
+
+.item {
+  margin-bottom: 18px;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both
+}
+
+/*.box-card-left {*/
+/*  width: 260px;*/
+/*}*/
+
+/*.box-card-mid {*/
+/*  width: 530px;*/
+/*}*/
 </style>

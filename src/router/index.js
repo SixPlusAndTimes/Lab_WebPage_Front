@@ -39,8 +39,62 @@ const routes = [
   {
     path: '/our_team',
     name: 'OurTeam',
-    component: () => import('@/views/OurTeam.vue')
+    component: () => import('@/views/OurTeam.vue'),
+      redirect:'/our_team/lab_intro',
+    children: [
+      {
+        path: 'lab_intro',
+        name: 'lab_intro',
+        component: () => import('@/views/labIntro/lab_intro_board.vue')
+      },
+      {
+        path: 'lab_team_teachers',
+        name: 'lab_team_teachers',
+        component: () => import('@/views/lab_team/teachers_pictures.vue')
+      },
+      {
+        path: 'lab_team_coresearchers',
+        name: 'lab_team_coresearchers',
+        component: () => import('@/views/lab_team/coresearchers.vue')
+      },
+      {
+        path: 'lab_team_graduate_students',
+        name: 'lab_team_graduate_students',
+        component: () => import('@/views/lab_team/graduate_students.vue')
+      },
+      {
+        path: 'lab_team_graduates',
+        name: 'lab_team_graduates',
+        component: () => import('@/views/lab_team/graduates.vue')
+      },
+      {
+        path: 'researchFiled',
+        name: 'researchFiled',
+        component: () => import('@/views/labIntro/researchFiled.vue')
+      },
+      {
+        path: 'researchProjects',
+        name: 'researchProjects',
+        component: () => import('@/views/labIntro/researchProjects.vue')
+      },
+      {
+        path: 'lab_team',
+        name: 'lab_team',
+        component: () => import('@/views/labIntro/Board.vue')
+      },
+      {
+        path: 'researchFiled',
+        name: 'researchFiled',
+        component: () => import('@/views/labIntro/Board.vue')
+      },
+    ]
   },
+
+  // {
+  //   path: '/our_team/lab_intro',
+  //   name: 'Board',
+  //   component: () => import('@/views/Board.vue')
+  // },
   {
     path: '/news',
     props: { type: "news" },
@@ -51,11 +105,11 @@ const routes = [
     props: { type: "research" },
     component: () => import('@/views/ViewList.vue')
   },
-  {
-    path: '/board',
-    name: 'Board',
-    component: () => import('@/views/Board.vue')
-  },
+  // {
+  //   path: '/board',
+  //   name: 'Board',
+  //   component: () => import('@/views/Board.vue')
+  // },
   {
     path: '/issue',
     name: 'Issue',

@@ -1,14 +1,14 @@
 import router from "./router";
 
 // 路由判断登录 根据路由配置文件的参数
-router.afterEach((to) => {
-    if(to.path.substring(0, 6) === "/admin"){
-     document.title = "后台管理";
-  }
-  else{
-     document.title = "徐州大学计算机网络与人工智能研究室";
-  }
-})
+// router.afterEach((to) => {
+//     if(to.path.substring(0, 6) === "/admin"){
+//      document.title = "南京航空航天大学智能制造实验室";
+//   }
+//   else{
+//      document.title = "南京航空航天大学智能制造实验室";
+//   }
+// })
 
 router.beforeEach((to, _from, next) => {
   if (to.matched.some(record => record.meta.requireAuth)) { // 判断该路由是否需要登录权限
