@@ -7,7 +7,7 @@
 
       <el-card className="box-card" shadow="never">
         <div slot="header" className="clearfix">
-          <h2>联合研究者</h2>
+          <h2>博士生</h2>
         </div>
         <p v-if="articles.length == 0">
           asodhoahsdohaosihdop AS'da手动阿asdd松大

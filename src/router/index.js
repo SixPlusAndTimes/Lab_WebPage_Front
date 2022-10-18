@@ -116,6 +116,16 @@ const routes = [
     component: () => import('@/views/Issue.vue')
   },
   {
+    path: '/academic_achievements',
+    name: 'AcademicAchievements',
+    component: () => import('@/views/AcademicAchievements.vue')
+  },
+  {
+    path: '/contact_us',
+    name: 'ContactUs',
+    component: () => import('@/views/ContactUs.vue')
+  },
+  {
     path: '/admin',
     name: 'Admin',
     meta: {

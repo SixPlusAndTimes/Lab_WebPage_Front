@@ -1,31 +1,6 @@
 <template>
   <div>
-    <!--<el-row>-->
-    <!--  <el-col-->
-    <!--    :span="10"-->
-    <!--    :offset="1"-->
-    <!--    v-for="(item, index) in researchers"-->
-    <!--    :key="index"-->
-    <!--    class="card_info"-->
-    <!--  >-->
-    <!--    <el-card shadow="hover" class="box-card" body-style="padding: '10px';">-->
-    <!--      <div slot="header" class="clearfix">-->
-    <!--        <h3>{{ item.title }}</h3>-->
-    <!--      </div>-->
-    <!--      <div class="head_img">-->
-    <!--        <img v-show="head_imgs[index]" :src="head_imgs[index]" alt="导师头像" />-->
-    <!--      </div>-->
-    <!--      <div class="bottom clearfix">-->
-    <!--        <span>{{ filterHtml(item.content) }}…</span>-->
-    <!--        <span>-->
-    <!--          <el-button style="padding: 5px 10px; font-size:16px" type="text">-->
-    <!--            <router-link :to="'/view?id=' + item.id">更多</router-link>-->
-    <!--          </el-button>-->
-    <!--        </span>-->
-    <!--      </div>-->
-    <!--    </el-card>-->
-    <!--  </el-col>-->
-    <!--</el-row>-->
+
     <el-row :gutter="20">
       <el-row></el-row>
       <el-col :span="6">
@@ -37,51 +12,23 @@
                   router="true"
                   class="el-menu-vertical-demo"
                   >
-                <el-menu-item index="/our_team/lab_intro" @click.native="push('/our_team/lab_intro')">
-                  <i class="el-icon-menu"></i>
-                  <span slot="title">研究室介绍</span>
-                </el-menu-item>
-
-                <el-submenu index="/our_team/lab_team">
+  
+                <!-- <el-submenu index="/our_team/lab_team">
                   <template slot="title">
                     <i class="el-icon-location"></i>
                     <span>研究团队</span>
-                  </template>
+                  </template> -->
                   <el-menu-item-group >
                     <el-menu-item index="/our_team/lab_team_teachers" @click.native="push('/our_team/lab_team_teachers')">教师</el-menu-item>
-                    <el-menu-item index="/our_team/lab_team_coresearchers" @click.native="push('/our_team/lab_team_coresearchers')">联合研究者</el-menu-item>
+                    <el-menu-item index="/our_team/lab_team_coresearchers" @click.native="push('/our_team/lab_team_coresearchers')">博士生</el-menu-item>
                     <el-menu-item index="/our_team/lab_team_graduate_students" @click.native="push('/our_team/lab_team_graduate_students')">研究生</el-menu-item>
-                    <el-menu-item index="/our_team/lab_team_graduates" @click.native="push('/our_team/lab_team_graduates')">毕业生</el-menu-item>
                   </el-menu-item-group>
-                </el-submenu>
-
-                <el-menu-item index="/our_team/researchFiled" @click.native="push('/our_team/researchFiled')">
-                  <i class="el-icon-document"></i>
-                  <span slot="title">研究方向</span>
-                </el-menu-item>
-                <el-menu-item index="/our_team/researchProjects" @click.native="push('/our_team/researchProjects')">
-                  <i class="el-icon-setting"></i>
-                  <span slot="title">科研项目</span>
-                </el-menu-item>
-                <!--<el-menu-item index="5">-->
-                <!--  <i class="el-icon-setting"></i>-->
-                <!--  <span slot="title">学术成果</span>-->
-                <!--</el-menu-item>-->
-                <!--<el-menu-item index="6">-->
-                <!--  <i class="el-icon-setting"></i>-->
-                <!--  <span slot="title">学术交流</span>-->
-                <!--</el-menu-item>-->
-                <!--<el-menu-item index="7">-->
-                <!--  <i class="el-icon-setting"></i>-->
-                <!--  <span slot="title">科研设备</span>-->
-                <!--</el-menu-item>-->
+                <!-- </el-submenu> -->
               </el-menu>
             </el-col>
           </el-row>
 
       </el-col>
-
-
 
       <el-col :span="18">
           <router-view></router-view>
@@ -149,20 +96,20 @@ export default {
     console.log(this.$route.path)
   },
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {
-    const _this = this;
-    _this.$axios.get("/Index/researcher/1000").then((res) => {
-      _this.researchers = res.data.data;
-      _this.get_imglist();
-    });
-  },
-  beforeCreate() {}, //生命周期 - 创建之前
-  beforeMount() {}, //生命周期 - 挂载之前
-  beforeUpdate() {}, //生命周期 - 更新之前
-  updated() {}, //生命周期 - 更新之后
-  beforeDestroy() {}, //生命周期 - 销毁之前
-  destroyed() {}, //生命周期 - 销毁完成
-  activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
+  // mounted() {
+  //   const _this = this;
+  //   _this.$axios.get("/Index/researcher/1000").then((res) => {
+  //     _this.researchers = res.data.data;
+  //     _this.get_imglist();
+  //   });
+  // },
+  // beforeCreate() {}, //生命周期 - 创建之前
+  // beforeMount() {}, //生命周期 - 挂载之前
+  // beforeUpdate() {}, //生命周期 - 更新之前
+  // updated() {}, //生命周期 - 更新之后
+  // beforeDestroy() {}, //生命周期 - 销毁之前
+  // destroyed() {}, //生命周期 - 销毁完成
+  // activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 };
 </script>
 <style scoped>
