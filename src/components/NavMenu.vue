@@ -8,9 +8,9 @@
   >
     <el-menu-item index="1" @click.native="push('/')">首页</el-menu-item>
     <!-- <el-menu-item index="3" @click.native="push('/our_team')">实验室介绍</el-menu-item> -->
-    <el-menu-item index="2" @click.native="push('/our_team/lab_team_teachers')">研究团队</el-menu-item>
-    <!-- <el-menu-item index="5" @click.native="push('/research')">研究方向</el-menu-item> -->
-    <el-menu-item index="3" @click.native="push('/board')">科研项目</el-menu-item>
+    <!--<el-menu-item index="2" @click.native="push('/our_team/lab_team_teachers')">研究团队</el-menu-item>-->
+     <el-menu-item index="2" @click.native="push('/direction')">研究方向</el-menu-item>
+    <el-menu-item index="3" @click.native="push('/projects')">科研项目</el-menu-item>
 
     <el-menu-item index="4" @click.native="push('/academic_achievements')">学术成果</el-menu-item>
     <el-menu-item index="5" @click.native="push('/contact_us')">联系我们</el-menu-item>

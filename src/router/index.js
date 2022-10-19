@@ -67,25 +67,20 @@ const routes = [
         name: 'lab_team_graduates',
         component: () => import('@/views/lab_team/graduates.vue')
       },
-      {
-        path: 'researchFiled',
-        name: 'researchFiled',
-        component: () => import('@/views/labIntro/researchFiled.vue')
-      },
-      {
-        path: 'researchProjects',
-        name: 'researchProjects',
-        component: () => import('@/views/labIntro/researchProjects.vue')
-      },
+      // {
+      //   path: 'researchFiled',
+      //   name: 'researchFiled',
+      //   component: () => import('@/views/labIntro/researchFiled.vue')
+      // },
       {
         path: 'lab_team',
         name: 'lab_team',
         component: () => import('@/views/labIntro/Board.vue')
       },
       {
-        path: 'researchFiled',
-        name: 'researchFiled',
-        component: () => import('@/views/labIntro/Board.vue')
+        path: 'researchProjects',
+        name: 'researchProjects',
+        component: () => import('@/views/direction.vue')
       },
     ]
   },
@@ -105,11 +100,16 @@ const routes = [
     props: { type: "research" },
     component: () => import('@/views/ViewList.vue')
   },
-  // {
-  //   path: '/board',
-  //   name: 'Board',
-  //   component: () => import('@/views/Board.vue')
-  // },
+  {
+    path: '/direction',
+    name: 'direction',
+    component: () => import('@/views/direction.vue')
+  },
+  {
+    path: '/projects',
+    props: { type: "projects" },
+    component: () => import('@/views/projects.vue')
+  },
   {
     path: '/issue',
     name: 'Issue',
