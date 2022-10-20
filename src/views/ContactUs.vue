@@ -9,20 +9,8 @@
           <div slot="header" className="clearfix">
             <h2>联系我们</h2>
           </div>
-            asodhoahsdohaosihdop AS'da手动阿松大
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-  
+            <p> <span style="font-weight: bold;">电话 :</span> 41646584 </p>
+            <p> <span style="font-weight: bold;">邮箱 :</span> 41646584 </p>
         </el-card>
   
       </el-row>
